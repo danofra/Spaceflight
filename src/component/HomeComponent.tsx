@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Notice from "../interface/Notice";
+import { Notice } from "../interface/Notice";
 import { Container, Row } from "react-bootstrap";
 import ArticlecardComponent from "./ArticlecardComponent";
 
@@ -19,10 +19,11 @@ function Mainarticle() {
   }, []);
   console.log(notice);
   return (
-    <Container>
-      <Row>
-        {notice.map((notice) => (
-          <ArticlecardComponent key={notice.id} />
+    <Container fluid>
+        <h1 className="text-center mt-5">Articoli trovati:</h1>
+      <Row className="justify-content-center">
+        {notice.map((notice, index) => (
+          <ArticlecardComponent key={index} notice={notice} />
         ))}
       </Row>
     </Container>
